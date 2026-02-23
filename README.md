@@ -1,100 +1,235 @@
-# 🚀 Intern Hub
+<!-- ================================================= -->
+<!--                INTERN HUB README                  -->
+<!-- ================================================= -->
 
-**The Ultimate Platform for Aspiring Talent and Progressive Recruiters.**
+<div align="center">
 
-Intern Hub is a premium, high-impact internship management platform designed to streamline the connection between students looking for career-starting opportunities and recruiters seeking top-tier talent. Built with a focus on **visual excellence**, **real-time data**, and **seamless user journeys**.
+# 🚀 Intern Hub  
+### The Internship Operating System
 
----
+<p>
+  <img src="https://img.shields.io/badge/Next.js-14+-000000?style=for-the-badge&logo=nextdotjs" />
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framer%20Motion-black?style=for-the-badge&logo=framer" />
+</p>
 
-## ✨ Features
+**A full-stack internship workflow platform for ambitious students and performance-driven recruiters.**
 
-### 🎓 For Students
-- **Activity Stream**: Track your application journey with a live, visual timeline from submission to offer.
-- **Application Workspace**: A central dashboard to manage and filter your active roles.
-- **Premium Detail Pages**: View job requirements, company culture, and eligibility in a beautiful, high-contrast interface.
-- **One-Click Apply**: Submit applications instantly using your saved profile and resume.
+From application → review → shortlist → hire.  
+Everything centralized. Everything tracked.
 
-### 💼 For Recruiters
-- **Management Dashboard**: Overview of all active listings with real-time applicant counts.
-- **Candidate Pipeline**: Review profiles, access resumes, and manage statuses (Shortlist/Hire/Reject) with a single click.
-- **Efficient Posting**: A powerful 'Tag-Based' skill input system for creating detailed internship listings fast.
-- **Status Control**: Reactivate or suspend listings instantly based on your hiring needs.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: [Next.js 14+](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with a Custom High-Contrast Design System
-- **Database & Auth**: [Supabase](https://supabase.com/) (PostgreSQL)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+</div>
 
 ---
 
-## 🚦 Getting Started
+# 🌍 Problem It Solves
 
-### Prerequisites
-- Node.js 18+
-- A Supabase Project
+Internship workflows are fragmented.
 
-### Installation
+Students:
+- Apply blindly  
+- Track nothing  
+- Repeat data entry  
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/intern-hub.git
-   cd intern-hub
-   ```
+Recruiters:
+- Use spreadsheets  
+- Manually track applicants  
+- Lose visibility  
 
-2. **Setup Frontend (`/app`)**
-   ```bash
-   cd app
-   npm install
-   cp .env.example .env.local
-   # Add your NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
-   npm run dev
-   ```
-
-3. **Database Setup**
-   - Run the provided `schema.sql` in your Supabase SQL Editor to initialize the tables (`users`, `student_profiles`, `recruiter_profiles`, `internships`, `applications`).
+Intern Hub replaces chaos with structured workflow.
 
 ---
 
-## 📊 Database Architecture
+# ✨ Features
 
-The system relies on a robust PostgreSQL schema:
-- **`users`**: Core identity and role management.
-- **`internships`**: Stores job details, requirements (using Postgres `TEXT[]` arrays), and statuses.
-- **`applications`**: Manages the relationship between students and job posts with unique constraints to prevent duplicates.
-- **`community_posts`**: A space for shared resources and announcements.
+## 🎓 For Students
 
----
-
-## 🎨 Design Philosophy
-
-Intern Hub uses a **High-Contrast "Premium" Aesthetic**:
-- **Primary Color Core**: `#383838` (Deep Charcoal) for professional intensity.
-- **Interface**: Glassmorphism elements, rounded geometry (`rounded-[40px]`), and subtle micro-animations for responsiveness.
-- **Accessibility**: Bold typography and clear hierarchical spacing ensuring readability at all times.
+- 📍 Real-time application status timeline  
+- 🗂 Central dashboard for all active roles  
+- ⚡ One-click apply using saved profile  
+- 📄 Clean internship detail pages  
+- 🔎 Filter applications by status  
 
 ---
 
-## 🤝 Contributing
+## 💼 For Recruiters
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- 📊 Real-time applicant counter  
+- 🏷 Tag-based skill input system  
+- 🔄 Activate / Suspend listings  
+- 👥 Candidate status control (Shortlist / Hire / Reject)  
+- 📂 Centralized listing management  
 
 ---
 
-## 📄 License
+# 🧠 Architecture Overview
 
-Distributed under the MIT License. See `LICENSE` for more information.
+<details>
+<summary><strong>System Flow Diagram</strong></summary>
+
+```
+Client (Next.js 14 App Router)
+        ↓
+Supabase Auth (JWT)
+        ↓
+PostgreSQL (Relational Schema + TEXT[] arrays)
+        ↓
+Real-Time Subscriptions
+```
+
+</details>
 
 ---
 
-Developed with ❤️ by the Intern Hub Team.
+# 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | Next.js 14 (App Router) |
+| Styling | Tailwind CSS |
+| Backend | Supabase |
+| Database | PostgreSQL |
+| Authentication | Supabase Auth |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+
+---
+
+# 🗄 Database Structure
+
+<details>
+<summary><strong>Core Tables</strong></summary>
+
+### `users`
+Role-based identity management (student / recruiter)
+
+### `student_profiles`
+Resume URL, skill data, linked to users
+
+### `recruiter_profiles`
+Company metadata
+
+### `internships`
+Role details + TEXT[] skill tags + active status
+
+### `applications`
+Student ↔ Internship relationship  
+Unique constraint prevents duplicate applications
+
+### `community_posts`
+Shared announcements
+
+</details>
+
+---
+
+# 🚦 Getting Started
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/yashwanth-maram/intern-hub1.git
+cd intern-hub1
+```
+
+---
+
+## 2️⃣ Install Dependencies
+
+```bash
+cd app
+npm install
+```
+
+---
+
+## 3️⃣ Environment Setup
+
+Create `.env.local` inside `/app`
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+```
+
+---
+
+## 4️⃣ Start Development Server
+
+```bash
+npm run dev
+```
+
+Visit:  
+`http://localhost:3000`
+
+---
+
+# 🎨 Design Philosophy
+
+- High-contrast premium UI  
+- Deep charcoal core (#383838)  
+- Rounded geometry (`rounded-[40px]`)  
+- Glassmorphism components  
+- Micro-interactions via Framer Motion  
+- Accessibility-first typography  
+
+Minimal noise. Maximum clarity.
+
+---
+
+# 📸 UI Preview (Replace With Real Screenshots)
+
+```
+Add your screenshots here:
+
+/assets/student-dashboard.png
+/assets/recruiter-dashboard.png
+/assets/internship-detail.png
+```
+
+Example embed:
+
+```markdown
+![Dashboard Preview](assets/student-dashboard.png)
+```
+
+---
+
+# 📈 Future Roadmap
+
+- 🤖 AI-based internship recommendations  
+- 📊 Recruiter analytics dashboard  
+- 📬 Email + notification automation  
+- 🧠 Resume parsing with embeddings  
+- 🔍 Intelligent skill matching  
+
+---
+
+# 🤝 Contributing
+
+```bash
+git checkout -b feature/amazing-feature
+git commit -m "feat: add amazing feature"
+git push origin feature/amazing-feature
+```
+
+Open a Pull Request.
+
+---
+
+# 📜 License
+
+Distributed under the MIT License.
+
+---
+
+<div align="center">
+
+### ⭐ If you find this project useful, consider giving it a star.
+
+Intern Hub — Internship Infrastructure Reimagined.
+
+</div>
